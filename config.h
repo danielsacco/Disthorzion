@@ -2,8 +2,8 @@
 #define PLUG_MFR "DES"
 #define PLUG_VERSION_HEX 0x00010000
 #define PLUG_VERSION_STR "1.0.0"
-#define PLUG_UNIQUE_ID 'NdmJ'
-#define PLUG_MFR_ID 'Acme'
+#define PLUG_UNIQUE_ID 'DSTH'
+#define PLUG_MFR_ID 'DES'
 #define PLUG_URL_STR "https://iplug2.github.io"
 #define PLUG_EMAIL_STR "spam@me.com"
 #define PLUG_COPYRIGHT_STR "Copyright 2020 Acme Inc"
