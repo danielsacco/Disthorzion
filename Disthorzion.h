@@ -6,7 +6,11 @@ const int kNumPresets = 1;
 
 enum EParams
 {
-  kGain = 0,
+  kGain = 0,      // Overall gain
+  kQ,             // Work point, should be less than zero
+  kDist,          // Distortion's character > 0
+  kDrive,         // Input drive > 0
+  kCascade,       // Whether we should simulate a single tube or two in cascade
   kNumParams
 };
 
@@ -20,5 +24,6 @@ public:
 
 #if IPLUG_DSP // http://bit.ly/2S64BDd
   void ProcessBlock(sample** inputs, sample** outputs, int nFrames) override;
+  sample AsymetricalClipping(double x, const double& Q, const double& dist);
 #endif
 };

@@ -6,6 +6,11 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
 : Plugin(info, MakeConfig(kNumParams, kNumPresets))
 {
   GetParam(kGain)->InitDouble("Gain", 0., 0., 100.0, 0.01, "%");
+  GetParam(kQ)->InitDouble("Q (Work Point)", -0.2, -.9, -0.01, .01, "");
+  GetParam(kDist)->InitDouble("Distortion Shape", 10, .1, 20, .1, "");
+  GetParam(kDrive)->InitDouble("Input Drive", 2, .8, 10, .1, "");
+  GetParam(kCascade)->InitBool("Cascade", false);
+
 
 #if IPLUG_EDITOR // http://bit.ly/2S64BDd
   mMakeGraphicsFunc = [&]() {
@@ -17,8 +22,20 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
     pGraphics->AttachPanelBackground(COLOR_GRAY);
     pGraphics->LoadFont("Roboto-Regular", ROBOTO_FN);
     const IRECT b = pGraphics->GetBounds();
-    pGraphics->AttachControl(new ITextControl(b.GetMidVPadded(50), "Hello iPlug 2!", IText(50)));
-    pGraphics->AttachControl(new IVKnobControl(b.GetCentredInside(100).GetVShifted(-100), kGain));
+    //pGraphics->AttachControl(new ITextControl(b.GetMidVPadded(50), "Disthorzion 2", IText(50)));
+    //pGraphics->AttachControl(new IVKnobControl(b.GetCentredInside(100).GetVShifted(-100), kGain));
+
+    const IBitmap switchBitmap = pGraphics->LoadBitmap((PNGSWITCH_FN), 2, true);
+    
+    auto rows = 5;
+
+    pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 0, 1, rows), kGain));
+    pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 1, 1, rows), kQ));
+    pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 2, 1, rows), kDist));
+    pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 3, 1, rows), kDrive));
+    // TODO Add label
+    pGraphics->AttachControl(new IBSwitchControl(b.GetGridCell(0, 4, 1, rows), switchBitmap, kCascade));
+
   };
 #endif
 }
@@ -26,13 +43,49 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
 #if IPLUG_DSP
 void Disthorzion::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
 {
-  const double gain = GetParam(kGain)->Value() / 100.;
+  const double outputGain = GetParam(kGain)->Value() / 100.;
   const int nChans = NOutChansConnected();
+
+  const double Q = GetParam(kQ)->Value();
+  const double dist = GetParam(kDist)->Value();
+  const double inputDrive = GetParam(kDrive)->Value();
+  const bool cascade = GetParam(kCascade)->Bool();
+
   
   for (int s = 0; s < nFrames; s++) {
-    for (int c = 0; c < nChans; c++) {
-      outputs[c][s] = inputs[c][s] * gain;
+
+    // For each channel process the samples
+    for (int c = 0; c < nChans; c++)
+    {
+      auto x = inputs[c][s] * inputDrive;
+      sample y;
+
+      // First valve
+      y = AsymetricalClipping(x, Q, dist);
+
+      if (cascade)
+      {
+        // Switch fase; Switch result fase 
+        y = -AsymetricalClipping(-y, Q, dist);
+      }
+
+
+      // TODO LP + HP
+
+      outputs[c][s] = y * outputGain;
     }
+  }
+}
+
+sample Disthorzion::AsymetricalClipping(double x, const double& Q, const double& dist)
+{
+  if (x == Q)
+  {
+    return 1. / dist + Q / (1. - std::exp(dist * Q));
+  }
+  else
+  {
+    return (x - Q) / (1. - std::exp(-dist * (x - Q))) + Q / (1. - std::exp(dist * Q));
   }
 }
 #endif
