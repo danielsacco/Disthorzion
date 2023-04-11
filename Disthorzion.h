@@ -1,6 +1,7 @@
 #pragma once
 
 #include "IPlug_include_in_plug_hdr.h"
+#include <DCBlocker.h>
 
 const int kNumPresets = 1;
 
@@ -24,6 +25,11 @@ public:
 
 #if IPLUG_DSP // http://bit.ly/2S64BDd
   void ProcessBlock(sample** inputs, sample** outputs, int nFrames) override;
-  sample AsymetricalClipping(double x, const double& Q, const double& dist);
+  sample AsymetricalClipping(const double& x, const double& Q, const double& dist);
+
+ private:
+  //std::vector<DCBlocker> blockers;
+   DCBlocker *blockerLeft;
+   DCBlocker *blockerRight;
 #endif
 };

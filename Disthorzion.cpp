@@ -11,6 +11,24 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
   GetParam(kDrive)->InitDouble("Input Drive", 2, .8, 10, .1, "");
   GetParam(kCascade)->InitBool("Cascade", false);
 
+ #if IPLUG_DSP
+
+  int nChans = NOutChansConnected();
+  double sampleRate = GetSampleRate();
+  double dcBlockerFreq = 20.;
+
+  //for (int i = 0; i < nChans; i++)
+  //{
+  //  //DCBlocker temp(dcBlockerFreq, sampleRate, i);
+  //  //blockers.push_back(temp);
+  //  //blockers.emplace_back(dcBlockerFreq, sampleRate, i);
+  //}
+
+  blockerLeft = new DCBlocker(dcBlockerFreq, sampleRate, 0);
+  blockerRight = new DCBlocker(dcBlockerFreq, sampleRate, 1);
+
+
+#endif
 
 #if IPLUG_EDITOR // http://bit.ly/2S64BDd
   mMakeGraphicsFunc = [&]() {
@@ -50,35 +68,51 @@ void Disthorzion::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
   const double dist = GetParam(kDist)->Value();
   const double inputDrive = GetParam(kDrive)->Value();
   const bool cascade = GetParam(kCascade)->Bool();
-
   
-  for (int s = 0; s < nFrames; s++) {
+  // For each channel process the samples
+  for (int ch = 0; ch < nChans; ch++)
+  {
+    sample* channelIn  = inputs[ch];
+    sample* channelOut = outputs[ch];
 
-    // For each channel process the samples
-    for (int c = 0; c < nChans; c++)
+    auto dcBlocker = blockerLeft;
+    if (ch == 1)
     {
-      auto x = inputs[c][s] * inputDrive;
-      sample y;
+      dcBlocker = blockerRight;
+    }
+    //= blockers[ch];
 
-      // First valve
-      y = AsymetricalClipping(x, Q, dist);
+    for (int s = 0; s < nFrames; s++)
+    {
+      // Process a sample
+      sample x = channelIn[s] * inputDrive;
+
+      // Process via first tube
+      sample y = AsymetricalClipping(x, Q, dist);
+
+      // DC block
+      y = dcBlocker->ProcessSample(y);
 
       if (cascade)
       {
-        // Switch fase; Switch result fase 
+        // Process result via second tube.
+        // Switch phase before and after processing so it clips the
+        // "almost linear" part of the signal
         y = -AsymetricalClipping(-y, Q, dist);
+
+        // TODO DC Block (use another vector of blockers)
       }
 
+      // TODO LP Filter
 
-      // TODO LP + HP
-
-      outputs[c][s] = y * outputGain;
+      channelOut[s] = y * outputGain;
     }
   }
 }
 
-sample Disthorzion::AsymetricalClipping(double x, const double& Q, const double& dist)
+sample Disthorzion::AsymetricalClipping(const double& x, const double& Q, const double& dist)
 {
+  // Udo Zolzer DAFX 2nd Ed. Page 122
   if (x == Q)
   {
     return 1. / dist + Q / (1. - std::exp(dist * Q));

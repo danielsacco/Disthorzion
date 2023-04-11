@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.78/win64" 1681138110
+<REAPER_PROJECT 0.1 "6.78/win64" 1681177752
   RIPPLE 0
   GROUPOVERRIDE 0 0 0
   AUTOXFADE 129
@@ -65,7 +65,7 @@
   MASTERTRACKVIEW 0 0.6667 0.5 0.5 0 0 0 0 0 0 0 0 0
   MASTERHWOUT 0 0 1 0 0 0 0 -1
   MASTER_NCH 2 2
-  MASTER_VOLUME 0 0 -1 -1 1
+  MASTER_VOLUME 0.77019387072009 0 -1 -1 1
   MASTER_FX 1
   MASTER_SEL 0
   <MASTERFXLIST
@@ -75,7 +75,7 @@
     DOCKED 0
     BYPASS 0 0 0
     <JS analysis/gfxscope ""
-      128.659599 0 2 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      89.762758 0 2 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     >
     JS_DIMS 947 521
     FLOATPOS 0 0 0 0
@@ -83,7 +83,7 @@
     WAK 0 0
     BYPASS 0 0 0
     <JS analysis/gfxanalyzer ""
-      8 -120 0 2 0 0 1000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      10 -120 0 2 0 0 1000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     >
     FLOATPOS 0 0 0 0
     FXID {740A22D6-5827-4FBB-8462-C662BB9CE2DB}
@@ -119,7 +119,7 @@
     ISBUS 1 1
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 0
+    SEL 1
     REC 0 5088 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
@@ -131,14 +131,14 @@
     MIDIOUT -1
     MAINSEND 1 0
     <FXCHAIN
-      WNDRECT 2014 270 710 596
+      WNDRECT 1950 188 730 616
       SHOW 1
       LASTSEL 0
       DOCKED 0
       BYPASS 0 0 0
       <VST "VST3: Disthorzion (DES)" Disthorzion.vst3 0 "" 696467037{F2AEE70D00DE4F4E0044455344535448} ""
         XT6DKe5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAPAAAAAEAAAD//xAA
-        LAAAAAEAAAC2qqqqqipVQIgeGZhivb+/spvEIKVMM0BpA5026AADQAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        LAAAAAEAAADwqqoqT3AyQKqfGi+MTeC/31G43iGSI0AAAAAAAAAkQAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAQAAAA
       >
       FLOATPOS 0 0 0 0
@@ -152,16 +152,16 @@
       FXID {CFE633D2-1A17-4048-A892-A0843747D995}
       WAK 0 0
       BYPASS 0 0 0
-      <JS Liteon/applefilter12db ""
-        0 100 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      <JS Liteon/simplelp6db ""
+        0 0 100 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
       >
       FLOATPOS 0 0 0 0
-      FXID {7F580B0F-AE11-461D-A78F-4944396D1A31}
+      FXID {5CACA8C0-0B81-42A2-AC5F-8CC31189DCD8}
       WAK 0 0
     >
   >
-  <TRACK {3AD0D419-6D90-4329-960F-237A248D2B63}
-    NAME "Tone generator"
+  <TRACK {4E3BB1CA-9E19-4F5A-AC7B-A0ADD798E8C5}
+    NAME "Tone generators"
     PEAKCOL 16576
     BEAT -1
     AUTOMODE 0
@@ -169,7 +169,7 @@
     MUTESOLO 0 0 0
     IPHASE 0
     PLAYOFFS 0 1
-    ISBUS 0 0
+    ISBUS 1 1
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
     SEL 0
@@ -179,12 +179,73 @@
     INQ 0 0 0 0.5 100 0 0 100
     NCHAN 2
     FX 1
+    TRACKID {4E3BB1CA-9E19-4F5A-AC7B-A0ADD798E8C5}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+  >
+  <TRACK {DB8CB036-7680-48DC-A5F8-1D5854421986}
+    NAME Triangle
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 1 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 1
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 84 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {DB8CB036-7680-48DC-A5F8-1D5854421986}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 2570 543 716 290
+      SHOW 0
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS synthesis/tonegenerator ""
+        -12 -6 440 0 -1 0 1 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      >
+      FLOATPOS 0 0 0 0
+      FXID {4C0C9796-8B08-44A7-9E2E-672A83285CFA}
+      WAK 0 0
+    >
+  >
+  <TRACK {3AD0D419-6D90-4329-960F-237A248D2B63}
+    NAME Sine
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 -1 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 2 -1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 71 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
     TRACKID {3AD0D419-6D90-4329-960F-237A248D2B63}
     PERF 0
     MIDIOUT -1
     MAINSEND 1 0
     <FXCHAIN
-      WNDRECT 1948 530 716 290
+      WNDRECT 2570 543 716 290
       SHOW 0
       LASTSEL 0
       DOCKED 0
@@ -209,7 +270,7 @@
     ISBUS 2 -1
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 0 0 0 0 0 0
