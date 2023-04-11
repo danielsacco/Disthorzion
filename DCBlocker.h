@@ -25,7 +25,7 @@ private:
   double lastOutput = .0;
   double R;
 
-  int channel;  // Just for testing purposes !!!
+  int channel;  // Just for testing purposes !!!  TODO: Delete this member
 
   inline void SetR();
 

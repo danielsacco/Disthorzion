@@ -28,8 +28,7 @@ public:
   sample AsymetricalClipping(const double& x, const double& Q, const double& dist);
 
  private:
-  //std::vector<DCBlocker> blockers;
-   DCBlocker *blockerLeft;
-   DCBlocker *blockerRight;
+   std::vector<DCBlocker> blockers;
+   std::vector<DCBlocker> cascadeDcBlockers;
 #endif
 };

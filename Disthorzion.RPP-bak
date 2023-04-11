@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.78/win64" 1681177440
+<REAPER_PROJECT 0.1 "6.78/win64" 1681232678
   RIPPLE 0
   GROUPOVERRIDE 0 0 0
   AUTOXFADE 129
@@ -65,7 +65,7 @@
   MASTERTRACKVIEW 0 0.6667 0.5 0.5 0 0 0 0 0 0 0 0 0
   MASTERHWOUT 0 0 1 0 0 0 0 -1
   MASTER_NCH 2 2
-  MASTER_VOLUME 0.1302370116574 0 -1 -1 1
+  MASTER_VOLUME 0.30701527295625 0 -1 -1 1
   MASTER_FX 1
   MASTER_SEL 0
   <MASTERFXLIST
@@ -75,7 +75,7 @@
     DOCKED 0
     BYPASS 0 0 0
     <JS analysis/gfxscope ""
-      20.515284 0 2 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      89.762758 0 2 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     >
     JS_DIMS 947 521
     FLOATPOS 0 0 0 0
@@ -131,27 +131,27 @@
     MIDIOUT -1
     MAINSEND 1 0
     <FXCHAIN
-      WNDRECT 2139 224 827 713
+      WNDRECT 2286 257 827 713
       SHOW 1
       LASTSEL 0
       DOCKED 0
       BYPASS 0 0 0
       <VST "VST3: Disthorzion (DES)" Disthorzion.vst3 0 "" 696467037{F2AEE70D00DE4F4E0044455344535448} ""
         XT6DKe5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAPAAAAAEAAAD//xAA
-        LAAAAAEAAAAAAAAAAABZQM3MzMzMzOy/Gkt+seRXCUAAAAAAAAAkQAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        LAAAAAEAAABLAACApIU5QKqfGi+MTeC/31G43iGSI0AAAAAAAAAkQAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAQAAAA
       >
       FLOATPOS 0 0 0 0
       FXID {3C5F2192-104A-4347-AA1A-F464C3926E7E}
       WAK 0 0
-      BYPASS 1 0 0
+      BYPASS 0 0 0
       <JS filters/dc_remove ""
         - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
       >
       FLOATPOS 0 0 0 0
       FXID {CFE633D2-1A17-4048-A892-A0843747D995}
       WAK 0 0
-      BYPASS 1 0 0
+      BYPASS 0 0 0
       <JS Liteon/simplelp6db ""
         0 0 100 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
       >
@@ -190,8 +190,8 @@
     BEAT -1
     AUTOMODE 0
     VOLPAN 1 1 -1 -1 1
-    MUTESOLO 1 0 0
-    IPHASE 1
+    MUTESOLO 0 0 0
+    IPHASE 0
     PLAYOFFS 0 1
     ISBUS 0 0
     BUSCOMP 0 0 0 0 0

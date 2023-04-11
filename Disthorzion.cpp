@@ -15,18 +15,15 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
 
   int nChans = NOutChansConnected();
   double sampleRate = GetSampleRate();
+
+  // TODO Make this frequency configurable
   double dcBlockerFreq = 20.;
 
-  //for (int i = 0; i < nChans; i++)
-  //{
-  //  //DCBlocker temp(dcBlockerFreq, sampleRate, i);
-  //  //blockers.push_back(temp);
-  //  //blockers.emplace_back(dcBlockerFreq, sampleRate, i);
-  //}
-
-  blockerLeft = new DCBlocker(dcBlockerFreq, sampleRate, 0);
-  blockerRight = new DCBlocker(dcBlockerFreq, sampleRate, 1);
-
+  for (int i = 0; i < nChans; i++)
+  {
+    blockers.push_back(DCBlocker(dcBlockerFreq, sampleRate, i));
+    cascadeDcBlockers.push_back(DCBlocker(dcBlockerFreq, sampleRate, i));
+  }
 
 #endif
 
@@ -68,6 +65,13 @@ void Disthorzion::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
   const double dist = GetParam(kDist)->Value();
   const double inputDrive = GetParam(kDrive)->Value();
   const bool cascade = GetParam(kCascade)->Bool();
+
+
+  // TODO Blockers should be managed here:
+  // The first time they should be created
+  // On each ProcessBlock we should check if freq or sample rate have changed and update the DC Blockers
+
+
   
   // For each channel process the samples
   for (int ch = 0; ch < nChans; ch++)
@@ -75,17 +79,13 @@ void Disthorzion::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
     sample* channelIn  = inputs[ch];
     sample* channelOut = outputs[ch];
 
-    auto dcBlocker = blockerLeft;
-    if (ch == 1)
-    {
-      dcBlocker = blockerRight;
-    }
-    //= blockers[ch];
+    auto dcBlocker = &(blockers[ch]);
+    auto cascadeDcBlocker = &(cascadeDcBlockers[ch]);
 
     for (int s = 0; s < nFrames; s++)
     {
       // Process a sample
-      sample x = channelIn[s] * inputDrive;
+      sample x = channelIn[s] * inputDrive * 2;
 
       // Process via first tube
       sample y = AsymetricalClipping(x, Q, dist);
@@ -98,9 +98,10 @@ void Disthorzion::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
         // Process result via second tube.
         // Switch phase before and after processing so it clips the
         // "almost linear" part of the signal
-        y = -AsymetricalClipping(-y, Q, dist);
+        y = -AsymetricalClipping(-y * 2, Q, dist);
 
-        // TODO DC Block (use another vector of blockers)
+        // DC Block
+        y = cascadeDcBlocker->ProcessSample(y);
       }
 
       // TODO LP Filter
