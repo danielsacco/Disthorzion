@@ -150,6 +150,8 @@ END
 BEGIN
     "#include ""..\\config.h""\r\n"
     "ROBOTO_FN TTF ROBOTO_FN\r\n"
+    "PNGSLIDERHANDLE_FN PNG PNGSLIDERHANDLE_FN\r\n"
+    "PNGSLIDERTRACK_FN PNG PNGSLIDERTRACK_FN\r\n"
     "PNGSWITCH_FN PNG PNGSWITCH_FN\0"
 END
 
@@ -231,6 +233,8 @@ END
 //
 #include "..\config.h"
 ROBOTO_FN TTF ROBOTO_FN
+PNGSLIDERHANDLE_FN PNG PNGSLIDERHANDLE_FN
+PNGSLIDERTRACK_FN PNG PNGSLIDERTRACK_FN
 PNGSWITCH_FN PNG PNGSWITCH_FN
 /////////////////////////////////////////////////////////////////////////////
 #endif    // not APSTUDIO_INVOKED
