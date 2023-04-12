@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.78/win64" 1681233787
+<REAPER_PROJECT 0.1 "6.78/win64" 1681299637
   RIPPLE 0
   GROUPOVERRIDE 0 0 0
   AUTOXFADE 129
@@ -69,21 +69,21 @@
   MASTER_FX 1
   MASTER_SEL 0
   <MASTERFXLIST
-    WNDRECT 2528 54 1174 607
+    WNDRECT 2858 110 886 607
     SHOW 1
     LASTSEL 0
     DOCKED 0
     BYPASS 0 0 0
     <JS analysis/gfxscope ""
-      89.762758 0 2 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      26.394883 0 2 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     >
-    JS_DIMS 947 521
+    JS_DIMS 659 521
     FLOATPOS 0 0 0 0
     FXID {F3E0A84B-0E4C-469F-A114-36E2D2D88287}
     WAK 0 0
     BYPASS 0 0 0
     <JS analysis/gfxanalyzer ""
-      10 -120 0 2 0 0 1000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      11 -120 0 2 1685 0 1000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     >
     FLOATPOS 0 0 0 0
     FXID {740A22D6-5827-4FBB-8462-C662BB9CE2DB}
@@ -119,10 +119,10 @@
     ISBUS 1 1
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 0
+    SEL 1
     REC 0 5088 1 0 0 0 0 0
     VU 2
-    TRACKHEIGHT 0 0 0 0 0 0
+    TRACKHEIGHT 100 0 0 0 0 0
     INQ 0 0 0 0.5 100 0 0 100
     NCHAN 2
     FX 1
@@ -131,18 +131,36 @@
     MIDIOUT -1
     MAINSEND 1 0
     <FXCHAIN
-      WNDRECT 2035 201 827 713
+      WNDRECT 2311 246 827 713
       SHOW 1
       LASTSEL 0
       DOCKED 0
       BYPASS 0 0 0
       <VST "VST3: Disthorzion (DES)" Disthorzion.vst3 0 "" 696467037{F2AEE70D00DE4F4E0044455344535448} ""
-        XT6DKe5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAAPAAAAAEAAAD//xAA
-        LAAAAAEAAAAAAAAAAABZQIAUrkfheoS/AAAAAAAANEDPaQOdNtD/PwAAAAAAAAAAAAAAAAAAAAAAAAAA
+        XT6DKe5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAARAAAAAEAAAD//xAA
+        NAAAAAEAAAD7//////9FQLgehSdDHOW/MzMz53x/JECOl24Sg8AEQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAA=
         AAAQAAAA
       >
       FLOATPOS 0 0 0 0
       FXID {3C5F2192-104A-4347-AA1A-F464C3926E7E}
+      <PARMENV 2:1 0 1 0.5 "Q (Work Point) / Disthorzion"
+        EGUID {D135CC44-FAF4-476E-BAA0-1D86CA2FECAF}
+        ACT 1 -1
+        VIS 0 1 1
+        LANEHEIGHT 0 0
+        ARM 1
+        DEFSHAPE 0 -1 -1
+        PT 0 0.27000001 0
+      >
+      <PARMENV 3:2 0 1 0.5 "Distortion Shape / Disthorzion"
+        EGUID {5874F182-2AB0-40C0-814E-6905B9CF5BA5}
+        ACT 1 -1
+        VIS 0 1 1
+        LANEHEIGHT 0 0
+        ARM 1
+        DEFSHAPE 0 -1 -1
+        PT 0 0.50999999 0
+      >
       WAK 0 0
       BYPASS 1 0 0
       <JS filters/dc_remove ""
@@ -208,13 +226,13 @@
     MIDIOUT -1
     MAINSEND 1 0
     <FXCHAIN
-      WNDRECT 2570 543 716 290
+      WNDRECT 1985 489 716 290
       SHOW 0
       LASTSEL 0
       DOCKED 0
       BYPASS 0 0 0
       <JS synthesis/tonegenerator ""
-        -12 -6 440 0 -1 0 1 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+        -12 -6 440 0 -2 0 1 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
       >
       FLOATPOS 0 0 0 0
       FXID {4C0C9796-8B08-44A7-9E2E-672A83285CFA}
@@ -226,14 +244,14 @@
     PEAKCOL 16576
     BEAT -1
     AUTOMODE 0
-    VOLPAN 1 0 -1 -1 1
+    VOLPAN 1 -1 -1 -1 1
     MUTESOLO 1 0 0
     IPHASE 0
     PLAYOFFS 0 1
-    ISBUS 2 -1
+    ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 0 1 0 0 0 0 0
     VU 2
     TRACKHEIGHT 71 0 0 0 0 0
@@ -251,10 +269,47 @@
       DOCKED 0
       BYPASS 0 0 0
       <JS synthesis/tonegenerator ""
-        -12 -6 440 0 -1 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+        -12 -6 440 0 -2 0 0 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
       >
       FLOATPOS 0 0 0 0
       FXID {E74C7353-89C5-48F3-A902-3885D640244E}
+      WAK 0 0
+    >
+  >
+  <TRACK {94C07C7F-2067-40BA-A99A-8B383F634DDE}
+    NAME "White Noise"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 2 -1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {94C07C7F-2067-40BA-A99A-8B383F634DDE}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <FXCHAIN
+      WNDRECT 2276 474 716 182
+      SHOW 1
+      LASTSEL 0
+      DOCKED 0
+      BYPASS 0 0 0
+      <JS loser/WhiteNoise ""
+        -120 -18 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      >
+      FLOATPOS 0 0 0 0
+      FXID {11ADCF8F-5A70-4434-89B9-DA139497344A}
       WAK 0 0
     >
   >

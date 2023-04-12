@@ -4,13 +4,7 @@
 class DCBlocker final
 {
 public:
-  DCBlocker(double frequency, double samplerate, int channel);
-
-  // Copy constructor and assignment
-  //DCBlocker(const DCBlocker&);
-  //DCBlocker& operator=(const DCBlocker&);
-
-  //DCBlocker& operator==(const DCBlocker&);
+  DCBlocker(double frequency, double samplerate);
 
   double ProcessSample(double input);
 
@@ -25,8 +19,5 @@ private:
   double lastOutput = .0;
   double R;
 
-  int channel;  // Just for testing purposes !!!  TODO: Delete this member
-
   inline void SetR();
-
 };

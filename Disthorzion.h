@@ -12,6 +12,7 @@ enum EParams
   kDist,          // Distortion's character > 0
   kDrive,         // Input drive > 0
   kCascade,       // Whether we should simulate a single tube or two in cascade
+  kDCBlockFreq,   // DC Blocker Frequency
   kNumParams
 };
 
@@ -26,9 +27,11 @@ public:
 #if IPLUG_DSP // http://bit.ly/2S64BDd
   void ProcessBlock(sample** inputs, sample** outputs, int nFrames) override;
   sample AsymetricalClipping(const double& x, const double& Q, const double& dist);
+  void OnParamChange(int paramIdx) override;
 
  private:
    std::vector<DCBlocker> blockers;
    std::vector<DCBlocker> cascadeDcBlockers;
+
 #endif
 };
