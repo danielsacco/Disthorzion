@@ -5,10 +5,10 @@
 Disthorzion::Disthorzion(const InstanceInfo& info)
 : Plugin(info, MakeConfig(kNumParams, kNumPresets))
 {
-  GetParam(kGain)->InitDouble("Gain", 0., 0., 100.0, 0.01, "%");
+  GetParam(kGain)->InitGain("Gain", 0., -12., 6., .5);
   GetParam(kQ)->InitDouble("Q (Work Point)", -0.2, -.9, -0.01, .01, "");
   GetParam(kDist)->InitDouble("Distortion Shape", 10, .1, 20, .1, "");
-  GetParam(kDrive)->InitDouble("Input Drive", 2, .8, 10, .1, "");
+  GetParam(kDrive)->InitGain("Input Drive", .0, -3, 12, .1);
   GetParam(kCascade)->InitBool("Cascade", false);
   GetParam(kDCBlockFreq)->InitDouble("DC Block Freq.", 10., 2., 30., .1, "Hz");
 
@@ -68,12 +68,12 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
 #if IPLUG_DSP
 void Disthorzion::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
 {
-  const double outputGain = GetParam(kGain)->Value() / 100.;
+  //const double outputGain = GetParam(kGain)->Value() / 100.;
   const int nChans = NOutChansConnected();
 
   const double Q = GetParam(kQ)->Value();
   const double dist = GetParam(kDist)->Value();
-  const double inputDrive = GetParam(kDrive)->Value();
+  //const double inputDrive = GetParam(kDrive)->Value();
   const bool cascade = GetParam(kCascade)->Bool();
  
   // DC Blockers should be created here the first time.
@@ -104,7 +104,7 @@ void Disthorzion::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
     for (int s = 0; s < nFrames; s++)
     {
       // Process a sample
-      sample x = channelIn[s] * inputDrive * 2;
+      sample x = channelIn[s] * linearDrive * 2;
 
       // Process via first tube
       sample y = AsymetricalClipping(x, Q, dist);
@@ -123,7 +123,7 @@ void Disthorzion::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
         y = cascadeDcBlocker->ProcessSample(y);
       }
 
-      channelOut[s] = y * outputGain;
+      channelOut[s] = y * linearGain;
     }
   }
 }
@@ -143,6 +143,17 @@ void Disthorzion::OnParamChange(int paramIdx)
       {
         cascadeBlocker.UpdateFrequency(freq);
       }
+      break;
+    }
+    case kDrive:
+    {
+      linearDrive = DBToAmp(GetParam(kDrive)->Value());
+      break;
+    }
+    case kGain:
+    {
+      linearGain = DBToAmp(GetParam(kGain)->Value());
+      break;
     }
   }
 }
