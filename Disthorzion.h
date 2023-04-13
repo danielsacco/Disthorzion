@@ -33,5 +33,8 @@ public:
    std::vector<DCBlocker> blockers;
    std::vector<DCBlocker> cascadeDcBlockers;
 
+   double linearGain = 0.;
+   double linearDrive = 0.;
+
 #endif
 };
