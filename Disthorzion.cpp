@@ -36,23 +36,29 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
 
     auto rows = 5;
 
-    {
-      // Input Drive Control
-      const IRECT driveColumn = controlsPanel.GetGridCell(0, 0, 1, rows);
-      const IRECT driveSliderColumn = driveColumn.SubRectHorizontal(2, 0);
-      const IRECT driveLabelsColumn = driveColumn.SubRectHorizontal(2, 1)
-        .GetMidVPadded(sliderTrackBitmap.FH()/2 - sliderHandleBitmap.FH()/4);
 
-      const IRECT driveSliderCell = driveSliderColumn;
+    // Input Drive Control
+    const IRECT driveColumn = controlsPanel.GetGridCell(0, 0, 1, rows);
 
-      // Drive Slider
-      pGraphics->AttachControl(new IBSliderControl(driveColumn, sliderHandleBitmap, sliderTrackBitmap, kDrive));
-    }
+    // Drive Slider
+    pGraphics->AttachControl(new IBSliderControl(driveColumn, sliderHandleBitmap, sliderTrackBitmap, kDrive));
+    pGraphics->AttachControl(new ICaptionControl(driveColumn
+      .GetFromBottom(50.f)
+      .GetMidVPadded(10.f)
+      .GetMidHPadded(12.f)
+      , kDrive, IText(13.f), COLOR_TRANSPARENT, false), kNoTag);
 
     pGraphics->AttachControl(new IBSliderControl(controlsPanel.GetGridCell(0, 1, 1, rows), sliderHandleBitmap, sliderTrackBitmap, kQ));
     pGraphics->AttachControl(new IBSliderControl(controlsPanel.GetGridCell(0, 2, 1, rows), sliderHandleBitmap, sliderTrackBitmap, kDist));
     pGraphics->AttachControl(new IBSwitchControl(controlsPanel.GetGridCell(0, 3, 1, rows), switchBitmap, kCascade));
+
     pGraphics->AttachControl(new IBSliderControl(controlsPanel.GetGridCell(0, 4, 1, rows), sliderHandleBitmap, sliderTrackBitmap, kGain));
+    pGraphics->AttachControl(new ICaptionControl(controlsPanel.GetGridCell(0, 4, 1, rows)
+      .GetFromBottom(50.f)
+      .GetMidVPadded(10.f)
+      .GetMidHPadded(12.f)
+      , kGain, IText(14.f), COLOR_TRANSPARENT, false), kNoTag);
+
 
     //pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 5, 1, rows), kDCBlockFreq));
   };
