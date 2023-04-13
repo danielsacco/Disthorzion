@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "6.78/win64" 1681299408
+<REAPER_PROJECT 0.1 "6.78/win64" 1681399221
   RIPPLE 0
   GROUPOVERRIDE 0 0 0
   AUTOXFADE 129
@@ -14,9 +14,9 @@
   TIMEMODE 1 5 -1 30 0 0 -1
   VIDEO_CONFIG 0 0 256
   PANMODE 3
-  CURSOR 0
-  ZOOM 12.85911208940568 0 0
-  VZOOMEX 6 0
+  CURSOR 115
+  ZOOM 12.8591120894057 271 0
+  VZOOMEX 0 50
   USE_REC_CFG 0
   RECMODE 1
   SMPTESYNC 0 30 100 40 1000 300 0 0 1 0 0
@@ -56,8 +56,8 @@
   GLOBAL_AUTO -1
   TEMPO 120 4 4
   PLAYRATE 1 0 0.25 4
-  SELECTION 0 37
-  SELECTION2 0 37
+  SELECTION 108 116.70133333333334
+  SELECTION2 108 116.70133333333334
   MASTERAUTOMODE 0
   MASTERTRACKHEIGHT 0 0
   MASTERPEAKCOL 16576
@@ -67,15 +67,15 @@
   MASTER_NCH 2 2
   MASTER_VOLUME 1 0 -1 -1 1
   MASTER_FX 1
-  MASTER_SEL 0
+  MASTER_SEL 1
   <MASTERFXLIST
-    WNDRECT 2858 110 886 607
-    SHOW 1
-    LASTSEL 0
+    WNDRECT 2901 443 867 513
+    SHOW 2
+    LASTSEL 1
     DOCKED 0
     BYPASS 0 0 0
     <JS analysis/gfxscope ""
-      26.394883 0 2 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      305.261921 0 2 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     >
     JS_DIMS 659 521
     FLOATPOS 0 0 0 0
@@ -83,7 +83,7 @@
     WAK 0 0
     BYPASS 0 0 0
     <JS analysis/gfxanalyzer ""
-      11 -120 0 2 1685 0 1000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+      11 -120 0 2 0 0 1000 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     >
     FLOATPOS 0 0 0 0
     FXID {740A22D6-5827-4FBB-8462-C662BB9CE2DB}
@@ -119,10 +119,10 @@
     ISBUS 1 1
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
-    SEL 1
+    SEL 0
     REC 0 5088 1 0 0 0 0 0
     VU 2
-    TRACKHEIGHT 100 0 0 0 0 0
+    TRACKHEIGHT 84 0 0 0 0 0
     INQ 0 0 0 0.5 100 0 0 100
     NCHAN 2
     FX 1
@@ -131,36 +131,18 @@
     MIDIOUT -1
     MAINSEND 1 0
     <FXCHAIN
-      WNDRECT 2311 246 827 713
+      WNDRECT 2071 194 827 363
       SHOW 1
       LASTSEL 0
       DOCKED 0
       BYPASS 0 0 0
       <VST "VST3: Disthorzion (DES)" Disthorzion.vst3 0 "" 696467037{F2AEE70D00DE4F4E0044455344535448} ""
         XT6DKe5e7f4CAAAAAQAAAAAAAAACAAAAAAAAAAIAAAABAAAAAAAAAAIAAAAAAAAARAAAAAEAAAD//xAA
-        NAAAAAEAAAD//////19TQLgehSdDHOW/MzMz53x/JEAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAJEAAAAAAAAAAAAAAAAA=
+        NAAAAAEAAABHeqEXeqEoQH70RkS9vd6/9/Sep5hPG0BYMbRdCoMLQAAAAAAAAPA/AAAAAAAAJEAAAAAAAAAAAAAAAAA=
         AAAQAAAA
       >
       FLOATPOS 0 0 0 0
       FXID {3C5F2192-104A-4347-AA1A-F464C3926E7E}
-      <PARMENV 2:1 0 1 0.5 "Q (Work Point) / Disthorzion"
-        EGUID {D135CC44-FAF4-476E-BAA0-1D86CA2FECAF}
-        ACT 1 -1
-        VIS 0 1 1
-        LANEHEIGHT 0 0
-        ARM 1
-        DEFSHAPE 0 -1 -1
-        PT 0 0.27000001 0
-      >
-      <PARMENV 3:2 0 1 0.5 "Distortion Shape / Disthorzion"
-        EGUID {5874F182-2AB0-40C0-814E-6905B9CF5BA5}
-        ACT 1 -1
-        VIS 0 1 1
-        LANEHEIGHT 0 0
-        ARM 1
-        DEFSHAPE 0 -1 -1
-        PT 0 0.50999999 0
-      >
       WAK 0 0
       BYPASS 1 0 0
       <JS filters/dc_remove ""
@@ -217,7 +199,7 @@
     SEL 0
     REC 0 0 1 0 0 0 0 0
     VU 2
-    TRACKHEIGHT 84 0 0 0 0 0
+    TRACKHEIGHT 0 0 0 0 0 0
     INQ 0 0 0 0.5 100 0 0 100
     NCHAN 2
     FX 1
@@ -254,7 +236,7 @@
     SEL 0
     REC 0 0 1 0 0 0 0 0
     VU 2
-    TRACKHEIGHT 71 0 0 0 0 0
+    TRACKHEIGHT 0 0 0 0 0 0
     INQ 0 0 0 0.5 100 0 0 100
     NCHAN 2
     FX 1
@@ -301,7 +283,7 @@
     MAINSEND 1 0
     <FXCHAIN
       WNDRECT 2276 474 716 182
-      SHOW 1
+      SHOW 0
       LASTSEL 0
       DOCKED 0
       BYPASS 0 0 0
@@ -322,13 +304,13 @@
     MUTESOLO 0 0 0
     IPHASE 0
     PLAYOFFS 0 1
-    ISBUS 2 -1
+    ISBUS 0 0
     BUSCOMP 0 0 0 0 0
     SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
     SEL 0
     REC 0 0 1 0 0 0 0 0
     VU 2
-    TRACKHEIGHT 0 0 0 0 0 0
+    TRACKHEIGHT 30 0 0 0 0 0
     INQ 0 0 0 0.5 100 0 0 100
     NCHAN 2
     FX 1
@@ -345,7 +327,7 @@
       FADEIN 1 0.01 0 1 0 0 0
       FADEOUT 1 0.01 0 1 0 0 0
       MUTE 0 0
-      SEL 1
+      SEL 0
       IGUID {3D1CD419-34AC-4557-AFA7-4B269DF389E7}
       IID 1
       NAME "14-Fretless DBX NDC+BSC-220810_1926.wav"
@@ -356,6 +338,212 @@
       GUID {4B86DB92-A1BA-47ED-A889-99936ADEBD6B}
       <SOURCE WAVE
         FILE "C:\Users\danie\Documents\REAPER Media\Mediocres\Cancion de Autor\Tracks\14-Fretless DBX NDC+BSC-220810_1926.wav"
+      >
+    >
+    <ITEM
+      POSITION 44
+      SNAPOFFS 0
+      LENGTH 8
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {D597536C-8DB6-4186-ACB5-4CFFA33727ED}
+      IID 2
+      NAME "14-Fretless DBX NDC+BSC-220810_1926.wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 2
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {8136EF8A-FBCA-44F8-8CEE-757389935339}
+      <SOURCE WAVE
+        FILE "C:\Users\danie\Documents\REAPER Media\Mediocres\Cancion de Autor\Tracks\14-Fretless DBX NDC+BSC-220810_1926.wav"
+      >
+    >
+  >
+  <TRACK {BDB84F21-1A14-4371-9152-84B892E41232}
+    NAME "12-Audio Kick-220620_1308"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {BDB84F21-1A14-4371-9152-84B892E41232}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 54
+      SNAPOFFS 0
+      LENGTH 15.144
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {E5ECD5A9-57A4-4649-84E8-CD1A7BCF9656}
+      IID 3
+      NAME "12-Audio Kick-220620_1308.wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {AD231B19-E86C-42FF-A635-FE5C43C4C4CA}
+      <SOURCE WAVE
+        FILE "C:\Users\danie\Documents\REAPER Media\Mediocres\Cancion de Autor\Tracks\12-Audio Kick-220620_1308.wav"
+      >
+    >
+  >
+  <TRACK {89FD4E7E-ED40-4B85-9B3F-C001FC12F452}
+    NAME "Cancion de autor 200"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 1 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {89FD4E7E-ED40-4B85-9B3F-C001FC12F452}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 80
+      SNAPOFFS 0
+      LENGTH 221.14228125
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {7291291E-2EB2-497B-9C31-754C88C05324}
+      IID 4
+      NAME "Cancion de autor 200.wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {1B35FC00-169D-48E9-9182-5E640F549CDA}
+      <SOURCE WAVE
+        FILE "C:\Users\danie\Documents\REAPER Media\Mediocres\Cancion de Autor\Tracks\Cancion de autor 200.wav"
+      >
+    >
+  >
+  <TRACK {D791CB32-6E15-40FE-9F9D-C2A6F18D7AD8}
+    NAME Criolla
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 0 0
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 0 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {D791CB32-6E15-40FE-9F9D-C2A6F18D7AD8}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 80
+      SNAPOFFS 0
+      LENGTH 28
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 0
+      IGUID {C245A952-826E-44BA-A380-5FC017214EBF}
+      IID 6
+      NAME "23-Criolla SM57-220920_1811.wav"
+      VOLPAN 1 0 1 -1
+      SOFFS 4
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {7310D614-7086-49EC-918A-65470F3CAEFA}
+      <SOURCE WAVE
+        FILE "C:\Users\danie\Documents\REAPER Media\Mediocres\Cancion de Autor\Tracks\23-Criolla SM57-220920_1811.wav"
+      >
+    >
+  >
+  <TRACK {D2E665B5-5AF5-415B-A7F0-FE066ADE7D0F}
+    NAME "09-Audio HiHat-220629_2031"
+    PEAKCOL 16576
+    BEAT -1
+    AUTOMODE 0
+    VOLPAN 1 0 -1 -1 1
+    MUTESOLO 0 0 0
+    IPHASE 0
+    PLAYOFFS 0 1
+    ISBUS 2 -1
+    BUSCOMP 0 0 0 0 0
+    SHOWINMIX 1 0.6667 0.5 1 0.5 0 0 0
+    SEL 0
+    REC 0 0 1 0 0 0 0 0
+    VU 2
+    TRACKHEIGHT 93 0 0 0 0 0
+    INQ 0 0 0 0.5 100 0 0 100
+    NCHAN 2
+    FX 1
+    TRACKID {D2E665B5-5AF5-415B-A7F0-FE066ADE7D0F}
+    PERF 0
+    MIDIOUT -1
+    MAINSEND 1 0
+    <ITEM
+      POSITION 108
+      SNAPOFFS 0
+      LENGTH 8.70133333333333
+      LOOP 1
+      ALLTAKES 0
+      FADEIN 1 0.01 0 1 0 0 0
+      FADEOUT 1 0.01 0 1 0 0 0
+      MUTE 0 0
+      SEL 1
+      IGUID {D92C19C2-2571-44AE-95B0-EE828C12EC57}
+      IID 7
+      NAME "09-Audio HiHat-220629_2031.wav"
+      VOLPAN 1 0 7.943282 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {82F75F23-F073-422B-AFD2-AF08A1C8286C}
+      <SOURCE WAVE
+        FILE "C:\Users\danie\Documents\REAPER Media\Mediocres\Cancion de Autor\Tracks\09-Audio HiHat-220629_2031.wav"
       >
     >
   >

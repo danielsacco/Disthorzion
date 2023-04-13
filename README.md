@@ -4,3 +4,12 @@ Based on iPlug2's IPlugEffect example.
 Only tested as VST3 within Reaper on Windows, I have no money for a Mac neither money for an Apple developer license.  
 To build this project follow the setup instructions for iPlug2, then download this code and use it under iPlug2/Examples or any other folder at the same level.
 I use a folder iPlug2/Projects.
+
+# TODO
+- Create Presets
+- Improve GUI
+- Show values of Input Drive and Gain
+- Highlight 1 or 2 valves selection
+- Show DC Block Frequency control for fine tuning
+- Remove SnapToMouse, it is fixed in ISliderControlBase::OnMouseDown
+- Add Help / About

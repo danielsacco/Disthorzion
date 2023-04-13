@@ -5,7 +5,7 @@
 Disthorzion::Disthorzion(const InstanceInfo& info)
 : Plugin(info, MakeConfig(kNumParams, kNumPresets))
 {
-  GetParam(kGain)->InitDouble("Gain", 100., 0., 100.0, 0.01, "%");
+  GetParam(kGain)->InitDouble("Gain", 0., 0., 100.0, 0.01, "%");
   GetParam(kQ)->InitDouble("Q (Work Point)", -0.2, -.9, -0.01, .01, "");
   GetParam(kDist)->InitDouble("Distortion Shape", 10, .1, 20, .1, "");
   GetParam(kDrive)->InitDouble("Input Drive", 2, .8, 10, .1, "");
@@ -19,21 +19,42 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
   };
   
   mLayoutFunc = [&](IGraphics* pGraphics) {
-    pGraphics->AttachCornerResizer(EUIResizerMode::Scale, false);
-    pGraphics->AttachPanelBackground(COLOR_GRAY);
-    pGraphics->LoadFont("Roboto-Regular", ROBOTO_FN);
-    const IRECT b = pGraphics->GetBounds();
-
+    // External resosurces
     const IBitmap switchBitmap = pGraphics->LoadBitmap((PNGSWITCH_FN), 2, true);
-    
-    auto rows = 6;
+    const IBitmap sliderHandleBitmap = pGraphics->LoadBitmap(PNGSLIDERHANDLE_FN);
+    const IBitmap sliderTrackBitmap = pGraphics->LoadBitmap(PNGSLIDERTRACK_FN);
+    const IBitmap backgroundBitmap = pGraphics->LoadBitmap(PNGGUIBACKGRND_FN);
 
-    pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 0, 1, rows), kGain));
-    pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 1, 1, rows), kQ));
-    pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 2, 1, rows), kDist));
-    pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 3, 1, rows), kDrive));
-    pGraphics->AttachControl(new IBSwitchControl(b.GetGridCell(0, 4, 1, rows), switchBitmap, kCascade));
-    pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 5, 1, rows), kDCBlockFreq));
+    pGraphics->AttachBackground(PNGGUIBACKGRND_FN);
+    pGraphics->LoadFont("Roboto-Regular", ROBOTO_FN);
+    const IRECT fullGUI = pGraphics->GetBounds();
+
+    const IRECT headerPanel = fullGUI.FracRectVertical(.15, true);
+    const IRECT footerPanel = fullGUI.FracRectVertical(.15, false);
+
+    const IRECT controlsPanel = IRECT(fullGUI.L, headerPanel.B, fullGUI.R, footerPanel.T);
+
+    auto rows = 5;
+
+    {
+      // Input Drive Control
+      const IRECT driveColumn = controlsPanel.GetGridCell(0, 0, 1, rows);
+      const IRECT driveSliderColumn = driveColumn.SubRectHorizontal(2, 0);
+      const IRECT driveLabelsColumn = driveColumn.SubRectHorizontal(2, 1)
+        .GetMidVPadded(sliderTrackBitmap.FH()/2 - sliderHandleBitmap.FH()/4);
+
+      const IRECT driveSliderCell = driveSliderColumn;
+
+      // Drive Slider
+      pGraphics->AttachControl(new IBSliderControl(driveColumn, sliderHandleBitmap, sliderTrackBitmap, kDrive));
+    }
+
+    pGraphics->AttachControl(new IBSliderControl(controlsPanel.GetGridCell(0, 1, 1, rows), sliderHandleBitmap, sliderTrackBitmap, kQ));
+    pGraphics->AttachControl(new IBSliderControl(controlsPanel.GetGridCell(0, 2, 1, rows), sliderHandleBitmap, sliderTrackBitmap, kDist));
+    pGraphics->AttachControl(new IBSwitchControl(controlsPanel.GetGridCell(0, 3, 1, rows), switchBitmap, kCascade));
+    pGraphics->AttachControl(new IBSliderControl(controlsPanel.GetGridCell(0, 4, 1, rows), sliderHandleBitmap, sliderTrackBitmap, kGain));
+
+    //pGraphics->AttachControl(new IVKnobControl(b.GetGridCell(0, 5, 1, rows), kDCBlockFreq));
   };
 #endif
 }
