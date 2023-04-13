@@ -26,13 +26,11 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
     const IBitmap backgroundBitmap = pGraphics->LoadBitmap(PNGGUIBACKGRND_FN);
 
     pGraphics->AttachBackground(PNGGUIBACKGRND_FN);
-    //pGraphics->AttachPanelBackground(COLOR_GRAY);
     pGraphics->LoadFont("Roboto-Regular", ROBOTO_FN);
     const IRECT fullGUI = pGraphics->GetBounds();
 
     const IRECT headerPanel = fullGUI.FracRectVertical(.15, true);
     const IRECT footerPanel = fullGUI.FracRectVertical(.15, false);
-    // Como armo el centro ???
 
     const IRECT controlsPanel = IRECT(fullGUI.L, headerPanel.B, fullGUI.R, footerPanel.T);
 
