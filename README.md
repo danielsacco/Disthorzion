@@ -6,10 +6,10 @@ To build this project follow the setup instructions for iPlug2, then download th
 I use a folder iPlug2/Projects.
 
 # TODO
+- Gain and Drive should be set in dBs
 - Create Presets
 - Improve GUI
-- Show values of Input Drive and Gain
 - Highlight 1 or 2 valves selection
 - Show DC Block Frequency control for fine tuning
-- Remove SnapToMouse, it is fixed in ISliderControlBase::OnMouseDown
+- Remove SnapToMouse, it is fixed in ISliderControlBase::OnMouseDown (Override component)
 - Add Help / About
