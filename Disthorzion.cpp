@@ -23,9 +23,10 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
     const IBitmap switchBitmap = pGraphics->LoadBitmap((PNGSWITCH_FN), 2, true);
     const IBitmap sliderHandleBitmap = pGraphics->LoadBitmap(PNGSLIDERHANDLE_FN);
     const IBitmap sliderTrackBitmap = pGraphics->LoadBitmap(PNGSLIDERTRACK_FN);
+    const IBitmap backgroundBitmap = pGraphics->LoadBitmap(PNGGUIBACKGRND_FN);
 
-
-    pGraphics->AttachPanelBackground(COLOR_GRAY);
+    pGraphics->AttachBackground(PNGGUIBACKGRND_FN);
+    //pGraphics->AttachPanelBackground(COLOR_GRAY);
     pGraphics->LoadFont("Roboto-Regular", ROBOTO_FN);
     const IRECT fullGUI = pGraphics->GetBounds();
 
@@ -44,26 +45,10 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
       const IRECT driveLabelsColumn = driveColumn.SubRectHorizontal(2, 1)
         .GetMidVPadded(sliderTrackBitmap.FH()/2 - sliderHandleBitmap.FH()/4);
 
-      const IRECT driveSliderCell = driveSliderColumn
-        // Align right, don't known how to do it in a simpler way
-        .GetCentredInside(IRECT(0, 0, sliderTrackBitmap))
-        .GetHShifted((driveLabelsColumn.W() - sliderTrackBitmap.FW())/2); 
+      const IRECT driveSliderCell = driveSliderColumn;
 
       // Drive Slider
-      pGraphics->AttachControl(new IBSliderControl(driveSliderCell, sliderHandleBitmap, sliderTrackBitmap, kDrive));
-
-      // Drive Labels
-      {
-        const std::vector<std::string> driveLabels{ "+12 dB","" ," +6 dB" ,"" ,"  0 dB" ," -3 dB" };
-
-        for (int index = 0; index < driveLabels.size(); ++index)
-        {
-          IRECT cell = driveLabelsColumn.GetGridCell(index, 0, driveLabels.size(), 1);
-          pGraphics->AttachControl(new ITextControl(cell, driveLabels[index].c_str(), DEFAULT_TEXT.WithAlign(EAlign::Near)));          
-        }
-      }
-
-
+      pGraphics->AttachControl(new IBSliderControl(driveColumn, sliderHandleBitmap, sliderTrackBitmap, kDrive));
     }
 
     pGraphics->AttachControl(new IBSliderControl(controlsPanel.GetGridCell(0, 1, 1, rows), sliderHandleBitmap, sliderTrackBitmap, kQ));
