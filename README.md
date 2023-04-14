@@ -43,4 +43,4 @@ bitmap resources for the controls
 - Add Help / About
 
 # TODO DSP
-
+- Antialiasing !!!
