@@ -12,6 +12,11 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
   GetParam(kCascade)->InitBool("Cascade", false);
   GetParam(kDCBlockFreq)->InitDouble("DC Block Freq.", 10., 2., 30., .1, "Hz");
 
+  // Factory Presets
+  // Params in order: kGain, kQ, kDist, kDrive, kCascade, kDCBlockFreq
+  MakePreset("Warm Bass", .0, -.75, 2.3, .0, false, 10.);
+  MakePreset("Bass Overdrive", -10., -.55, 9.3, 6.0, true, 10.);
+  MakePreset("Bass Fuzz", -7., -.01, 20., 12.0, true, 10.);
 
 #if IPLUG_EDITOR // http://bit.ly/2S64BDd
   mMakeGraphicsFunc = [&]() {
@@ -29,8 +34,8 @@ Disthorzion::Disthorzion(const InstanceInfo& info)
     pGraphics->LoadFont("Roboto-Regular", ROBOTO_FN);
     const IRECT fullGUI = pGraphics->GetBounds();
 
-    const IRECT headerPanel = fullGUI.FracRectVertical(.15, true);
-    const IRECT footerPanel = fullGUI.FracRectVertical(.15, false);
+    const IRECT headerPanel = fullGUI.FracRectVertical(.15f, true);
+    const IRECT footerPanel = fullGUI.FracRectVertical(.15f, false);
 
     const IRECT controlsPanel = IRECT(fullGUI.L, headerPanel.B, fullGUI.R, footerPanel.T);
 

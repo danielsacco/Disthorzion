@@ -437,5 +437,6 @@
     <None Include="..\config\Disthorzion-mac.xcconfig">
       <Filter>config</Filter>
     </None>
+    <None Include="..\README.md" />
   </ItemGroup>
 </Project>

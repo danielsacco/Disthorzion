@@ -3,7 +3,7 @@
 #include "IPlug_include_in_plug_hdr.h"
 #include <DCBlocker.h>
 
-const int kNumPresets = 1;
+const int kNumPresets = 3;
 
 enum EParams
 {
