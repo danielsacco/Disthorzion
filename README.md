@@ -33,9 +33,7 @@ bitmap resources for the controls
 
 # TODO GUI
 
-- Set category as Distortion
 - Fix different sizes of Gain/Drive value editors, should be set with a common constant maybe in config.h 
-- Create Presets
 - Improve GUI
 - Highlight 1 or 2 valves selection
 - Show DC Block Frequency control for fine tuning
