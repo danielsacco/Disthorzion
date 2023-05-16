@@ -92,8 +92,8 @@ void Disthorzion::ProcessBlock(sample** inputs, sample** outputs, int nFrames)
     const double sampleRate = GetSampleRate();
     for (int i = 0; i < nChans; i++)
     {
-      blockers.push_back(DCBlocker(dcBlockerFreq, sampleRate));
-      cascadeDcBlockers.push_back(DCBlocker(dcBlockerFreq, sampleRate));
+      blockers.push_back(dsptk::DCBlocker(dcBlockerFreq, sampleRate));
+      cascadeDcBlockers.push_back(dsptk::DCBlocker(dcBlockerFreq, sampleRate));
     }
   }
   

@@ -2,7 +2,9 @@
 
 ![Tubby](gui-design/Tubby.png)
 
-Tube emulator developed using [iPlug2](https://github.com/iPlug2/iPlug2) currently in Alpha stage. I'm a newby at DSP, this project is meant just for learning.  
+Basic Tube distortion simulator developed using [iPlug2](https://github.com/iPlug2/iPlug2) currently in Alpha stage.
+Based on DAFX Second Edition Udo Zölzer section 4.3.1.  
+I'm a newby at DSP, this project is meant just for learning.  
 Based on iPlug2's IPlugEffect example.  
 Only tested as VST3 within Reaper on Windows, I have no money for a Mac neither money for an Apple developer license.  
 

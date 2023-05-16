@@ -1,7 +1,7 @@
 #pragma once
 
 #include "IPlug_include_in_plug_hdr.h"
-#include <DCBlocker.h>
+#include <filters.h>
 
 const int kNumPresets = 3;
 
@@ -30,8 +30,8 @@ public:
   void OnParamChange(int paramIdx) override;
 
  private:
-   std::vector<DCBlocker> blockers;
-   std::vector<DCBlocker> cascadeDcBlockers;
+   std::vector<dsptk::DCBlocker> blockers;
+   std::vector<dsptk::DCBlocker> cascadeDcBlockers;
 
    double linearGain = 0.;
    double linearDrive = 0.;
