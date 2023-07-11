@@ -332,7 +332,6 @@
     <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3_Parameter.h" />
     <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3_ProcessorBase.h" />
     <ClInclude Include="..\..\..\IPlug\VST3\IPlugVST3_View.h" />
-    <ClInclude Include="..\DCBlocker.h" />
     <ClInclude Include="..\Disthorzion.h" />
     <ClInclude Include="..\resources\resource.h" />
   </ItemGroup>
@@ -395,7 +394,6 @@
     <ClCompile Include="..\..\..\IPlug\IPlugTimer.cpp" />
     <ClCompile Include="..\..\..\IPlug\VST3\IPlugVST3.cpp" />
     <ClCompile Include="..\..\..\IPlug\VST3\IPlugVST3_ProcessorBase.cpp" />
-    <ClCompile Include="..\DCBlocker.cpp" />
     <ClCompile Include="..\Disthorzion.cpp" />
   </ItemGroup>
   <ItemGroup>

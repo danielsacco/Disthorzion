@@ -140,11 +140,11 @@ void Disthorzion::OnParamChange(int paramIdx)
     case kDCBlockFreq:
     {
       double freq = GetParam(kDCBlockFreq)->Value();
-      for (auto blocker : blockers)
+      for (auto& blocker : blockers)
       {
         blocker.UpdateFrequency(freq);
       }
-      for (auto cascadeBlocker : cascadeDcBlockers)
+      for (auto& cascadeBlocker : cascadeDcBlockers)
       {
         cascadeBlocker.UpdateFrequency(freq);
       }
